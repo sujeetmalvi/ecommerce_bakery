@@ -83,7 +83,7 @@
                <div class="col-lg-7">
                   <h4 class="fw-bold mb-3">{{$product->product_name}}</h4>
                   <p class="mb-4">{{$product->product_description}}</p>
-                  <h5 class="fw-bold mb-3">Rs. <span class="display-6 fw-bold">{{$product->product_price}}/-</span> </h5>
+                  <h5 class="fw-bold mb-3">₹ <span class="display-6 fw-bold">{{$product->product_price}}/-</span> </h5>
                   <div class="input-group quantity mb-5" style="width: 100px;">
                      <div class="input-group-btn">
                         <button class="btn btn-sm btn-minus dec_qty rounded-circle bg-light border" >
@@ -310,7 +310,7 @@
                   </div>
                   <div class="product-details text-center mt-3">
                      <h6>{{$product->product_name}}</h6>
-                     <h5 class="fw-bold">Rs. {{$product->product_price}}/-</h5>
+                     <h5 class="fw-bold">₹ {{$product->product_price}}/-</h5>
                      <div class="row mt-2">
                         <div class="col-lg-6 col-md-6 col-6">
                            <a href="{{URL::to('/product-details?product_id='.$product->product_id)}}">
@@ -338,7 +338,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -361,7 +361,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -384,7 +384,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -407,7 +407,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -430,7 +430,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">

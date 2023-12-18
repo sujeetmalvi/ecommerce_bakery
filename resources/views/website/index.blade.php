@@ -138,7 +138,7 @@
                   </div>
                   <div class="product-details text-center mt-3">
                      <h6>{{$product->product_name}}</h6>
-                     <h5 class="fw-bold">Rs. {{$product->product_price}}/-</h5>
+                     <h5 class="fw-bold">₹ {{$product->product_price}}/-</h5>
                      <div class="row mt-2">
                         <div class="col-lg-6 col-md-6 col-6">
                            <!-- <a data-id="{{$product->product_id}}" class="buy_now"> -->
@@ -171,7 +171,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 479/-</h5>
+                  <h5 class="fw-bold">₹ 479/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -200,7 +200,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -229,7 +229,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -258,7 +258,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -287,7 +287,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -316,7 +316,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
@@ -345,7 +345,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">Rs. 349/-</h5>
+                  <h5 class="fw-bold">₹ 349/-</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <a href="">   
