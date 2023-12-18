@@ -45,7 +45,7 @@ class RazorpayController extends Controller
                 $customerData = Customer::where('customer_id', $orderData->customer_id)->first();
 
                 $dt = new DateTime($orderData->created_at);
-                // $dt->setTimezone(new DateTimeZone($user_data->timezone));
+                $dt->setTimezone(new DateTimeZone('Asia/Kolkata'));
                 $transaction_date = $dt->format('d-m-Y H:i:s');
 
                 $pdf = App::make('dompdf.wrapper'); 
