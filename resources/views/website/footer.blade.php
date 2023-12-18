@@ -190,30 +190,33 @@
 
             $('#checkout_form').on('submit', function (e) {
                e.preventDefault();
-
-               let data = {
-                  first_name: $('#first_name').val(),
-                  last_name: $('#last_name').val(),
-                  company_name: $('#company_name').val(),
-                  address: $('#address').val(),
-                  city: $('#city').val(),
-                  country: $('#country').val(),
-                  zip_code: $('#zip_code').val(),
-                  mobile: $('#mobile').val(),
-                  email: $('#email').val(),
-                  note: $('#note').val()
-               }
-
-               $.ajax({
-                  url: '/add-user',
-                  type: 'post',
-                  data: data,
-                  success: function(data){
-                     // console.log('data',data)
-                     var json_response = jQuery.parseJSON(data);
-                     window.location.href = '/payment';
+               var grand_total = $('input[name="grand_total"]').val();
+               if(grand_total != 0) {
+                  let data = {
+                     first_name: $('#first_name').val(),
+                     last_name: $('#last_name').val(),
+                     company_name: $('#company_name').val(),
+                     address: $('#address').val(),
+                     city: $('#city').val(),
+                     country: $('#country').val(),
+                     zip_code: $('#zip_code').val(),
+                     mobile: $('#mobile').val(),
+                     email: $('#email').val(),
+                     note: $('#note').val()
                   }
-               });
+
+                  $.ajax({
+                     url: '/add-user',
+                     type: 'post',
+                     data: data,
+                     success: function(data){
+                        // console.log('data',data)
+                        var json_response = jQuery.parseJSON(data);
+                        window.location.href = '/payment';
+                     }
+                  });
+               }
+               
             });
 
             $('.add_to_cart').click(function(){       
@@ -305,23 +308,36 @@
                });
             });
 
-            $('.decrease_qty').click(function(){       
-               var product_id = $(this).attr('data-id');
-              
-               // loader.show()
-               $.ajax({
-                  url: '/increase-decrease-qty',
-                  type: 'post',
-                  data: {product_id: product_id, type: 'decrease_qty'},
-                  success: function(data){
-                     console.log('data',data)
+            $('.decrease_qty').click(function(){ 
+               var quantity = $('input[name="quantity"]').val();
+               if(quantity == 0) {
+                  $('input[name="quantity"]').val(1);
+               }
+               if(quantity >= 1) { 
+                  var product_id = $(this).attr('data-id');
+                 
+                  // loader.show()
+                  $.ajax({
+                     url: '/increase-decrease-qty',
+                     type: 'post',
+                     data: {product_id: product_id, type: 'decrease_qty'},
+                     success: function(data){
+                        console.log('data',data)
 
-                     // loader.hide();
-                     var json_response = jQuery.parseJSON(data);
-                     // window.location.href = '/cart';
-                     location.reload();
-                  }
-               });
+                        // loader.hide();
+                        var json_response = jQuery.parseJSON(data);
+                        // window.location.href = '/cart';
+                        location.reload();
+                     }
+                  });
+               }
+            });
+
+            $('.dec_qty').click(function(){ 
+               var quantity = $('input[name="quantity"]').val();
+               if(quantity == 0) {
+                  $('input[name="quantity"]').val(1);
+               }
             });
          });
    </script>

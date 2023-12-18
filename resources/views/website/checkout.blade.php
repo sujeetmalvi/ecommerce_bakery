@@ -130,12 +130,21 @@
                            <td class="py-5">
                               <div class="py-3 border-bottom border-top">
                                  <p class="mb-0 text-dark">Rs. {{$grand_total}}/-</p>
+                                 <input type="hidden" name="grand_total" value="{{$grand_total}}">
                               </div>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                </div>
+               <?php
+               $disabled = '';
+               if(is_array($session_cart_item)) {
+                  if(count($session_cart_item) == 0) {
+                     $disabled = "disabled";
+                  }
+               }
+               ?>
                <div class="row g-4 text-center align-items-center justify-content-center pt-4">
                   <button type="submit" class="btn checkout_btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place Order</button>
                </div>

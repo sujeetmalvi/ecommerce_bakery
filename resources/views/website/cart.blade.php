@@ -1,4 +1,9 @@
 @include('website.header')
+<style type="text/css">
+   .qty_input:disabled {
+      background: #fff !important;
+   }
+</style>
 <div class="container-fluid page-header py-5">
    <h1 class="text-center text-white display-6">View Cart</h1>
    <ol class="breadcrumb justify-content-center mb-0">
@@ -47,13 +52,13 @@
                         <div class="input-group quantity mt-4" style="width: 100px;">
                            <div class="input-group-btn">
                               <button class="btn btn-sm btn-minus decrease_qty rounded-circle bg-light border" data-id="{{$session_cart_item[$key]['product_id']}}">
-                              <i class="fa fa-minus"></i>
+                                 <i class="fa fa-minus"></i>
                               </button>
                            </div>
-                           <input type="text" class="form-control form-control-sm text-center border-0" value="{{$session_cart_item[$key]['product_quantity']}}">
+                           <input type="text" name="quantity" disabled class="form-control form-control-sm text-center border-0 qty_input" value="{{$session_cart_item[$key]['product_quantity']}}">
                            <div class="input-group-btn">
                               <button class="btn btn-sm btn-plus increase_qty rounded-circle bg-light border" data-id="{{$session_cart_item[$key]['product_id']}}">
-                              <i class="fa fa-plus"></i>
+                                 <i class="fa fa-plus"></i>
                               </button>
                            </div>
                         </div>
@@ -170,9 +175,23 @@
                   <!-- <p class="mb-0 pe-4">$99.00</p> -->
                   <p class="mb-0 pe-4">Rs. {{$grand_total}}</p>
                </div>
-               <a href="{{URL::to('/checkout')}}">
-                  <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
-               </a>
+               <?php
+               if(is_array($session_cart_item)) {
+                  if(count($session_cart_item) != 0) { ?>
+                     <a href="{{URL::to('/checkout')}}">
+                        <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                     </a>
+                  <?php } else { ?>
+                     <a>
+                        <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                     </a>
+               <?php }
+               } else {
+               ?>
+                  <a>
+                     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                  </a>
+               <?php } ?>
             </div>
          </div>
       </div>

@@ -57,6 +57,9 @@
   line-height: 1.4;
   font-size: 16px;
 }
+.qty_input:disabled {
+      background: #fff !important;
+   }
 </style>
 <div class="container-fluid page-header py-5">
    <h1 class="text-center text-white display-6">{{$product->product_name}}</h1>
@@ -83,11 +86,11 @@
                   <h5 class="fw-bold mb-3">Rs. <span class="display-6 fw-bold">{{$product->product_price}}/-</span> </h5>
                   <div class="input-group quantity mb-5" style="width: 100px;">
                      <div class="input-group-btn">
-                        <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                        <button class="btn btn-sm btn-minus dec_qty rounded-circle bg-light border" >
                         <i class="fa fa-minus"></i>
                         </button>
                      </div>
-                     <input type="text" name="quantity" class="form-control form-control-sm text-center border-0" value="1">
+                     <input type="text" disabled name="quantity" class="form-control form-control-sm text-center border-0 qty_input" value="1">
                      <div class="input-group-btn">
                         <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                         <i class="fa fa-plus"></i>
