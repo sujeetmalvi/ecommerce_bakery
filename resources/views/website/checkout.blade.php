@@ -100,9 +100,9 @@
                                  </div>
                               </th>
                               <td class="py-5">{{$session_cart_item[$key]['product_name']}}</td>
-                              <td class="py-5">₹ {{$session_cart_item[$key]['product_price']}}/-</td>
+                              <td class="py-5">₹ {{$session_cart_item[$key]['product_price']}}</td>
                               <td class="py-5">{{$session_cart_item[$key]['product_quantity']}}</td>
-                              <td class="py-5">₹ {{$total}}/-</td>
+                              <td class="py-5">₹ {{$total}}</td>
                            </tr>
                         <?php }} ?>
                         <tr>
@@ -115,7 +115,7 @@
                            </td>
                            <td class="py-5">
                               <div class="py-3 border-bottom border-top">
-                                 <p class="mb-0 text-dark">₹ {{$grand_total}}/-</p>
+                                 <p class="mb-0 text-dark">₹ {{$grand_total}}</p>
                               </div>
                            </td>
                         </tr>
@@ -129,7 +129,7 @@
                            <td class="py-5"></td>
                            <td class="py-5">
                               <div class="py-3 border-bottom border-top">
-                                 <p class="mb-0 text-dark">₹ {{$grand_total}}/-</p>
+                                 <p class="mb-0 text-dark">₹ {{$grand_total}}</p>
                                  <input type="hidden" name="grand_total" value="{{$grand_total}}">
                               </div>
                            </td>

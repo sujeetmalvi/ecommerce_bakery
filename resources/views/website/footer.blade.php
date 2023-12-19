@@ -171,13 +171,13 @@
             });
 
             $('.cart-remove-item').click(function(){       
-               var product_id = $(this).attr('data-id');
+               var prod_weight_id = $(this).attr('data-id');
               
                // loader.show()
                $.ajax({
                   url: '/remove-item-from-cart',
                   type: 'post',
-                  data: {product_id: product_id},
+                  data: {prod_weight_id: prod_weight_id},
                   success: function(data){
                      console.log('data',data)
 
@@ -290,13 +290,13 @@
             });
 
             $('.increase_qty').click(function(){       
-               var product_id = $(this).attr('data-id');
+               var prod_weight_id = $(this).attr('data-id');
               
                // loader.show()
                $.ajax({
                   url: '/increase-decrease-qty',
                   type: 'post',
-                  data: {product_id: product_id, type: 'increase_qty'},
+                  data: {prod_weight_id: prod_weight_id, type: 'increase_qty'},
                   success: function(data){
                      console.log('data',data)
 
@@ -314,13 +314,13 @@
                   $('input[name="quantity"]').val(1);
                }
                if(quantity >= 1) { 
-                  var product_id = $(this).attr('data-id');
+                  var prod_weight_id = $(this).attr('data-id');
                  
                   // loader.show()
                   $.ajax({
                      url: '/increase-decrease-qty',
                      type: 'post',
-                     data: {product_id: product_id, type: 'decrease_qty'},
+                     data: {prod_weight_id: prod_weight_id, type: 'decrease_qty'},
                      success: function(data){
                         console.log('data',data)
 
@@ -339,6 +339,27 @@
                   $('input[name="quantity"]').val(1);
                }
             });
+
+            $('.dec_qty').click(function(){ 
+               var quantity = $('input[name="quantity"]').val();
+               if(quantity == 0) {
+                  $('input[name="quantity"]').val(1);
+               }
+            });
+
+            $('.weights').click(function() {
+               let weight_id = $(this).attr('data-id');
+               let price = $('input[name="weight_array"]').val();
+               price = JSON.parse(price);
+
+               let product_price = 0;
+               for(i=0; i<price.length; i++) {
+                  if(price[i].weight_id == weight_id) {
+                     product_price = price[i].product_price;
+                  }
+               }
+               $('.product_price').text(product_price);
+            })
          });
    </script>
    </body>

@@ -19,6 +19,7 @@
                <tr>
                   <th scope="col">Products</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Size</th>
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Total</th>
@@ -46,18 +47,21 @@
                         <p class="mb-0 mt-4">{{$session_cart_item[$key]['product_name']}}</p>
                      </td>
                      <td>
+                        <p class="mb-0 mt-4">{{$session_cart_item[$key]['product_weight']}} {{$session_cart_item[$key]['product_unit']}}</p>
+                     </td>
+                     <td>
                         <p class="mb-0 mt-4">₹ {{$session_cart_item[$key]['product_price']}}</p>
                      </td>
                      <td>
                         <div class="input-group quantity mt-4" style="width: 100px;">
                            <div class="input-group-btn">
-                              <button class="btn btn-sm btn-minus decrease_qty rounded-circle bg-light border" data-id="{{$session_cart_item[$key]['product_id']}}">
+                              <button class="btn btn-sm btn-minus decrease_qty rounded-circle bg-light border" data-id="{{$key}}">
                                  <i class="fa fa-minus"></i>
                               </button>
                            </div>
                            <input type="text" name="quantity" disabled class="form-control form-control-sm text-center border-0 qty_input" value="{{$session_cart_item[$key]['product_quantity']}}">
                            <div class="input-group-btn">
-                              <button class="btn btn-sm btn-plus increase_qty rounded-circle bg-light border" data-id="{{$session_cart_item[$key]['product_id']}}">
+                              <button class="btn btn-sm btn-plus increase_qty rounded-circle bg-light border" data-id="{{$key}}">
                                  <i class="fa fa-plus"></i>
                               </button>
                            </div>
@@ -67,7 +71,7 @@
                         <p class="mb-0 mt-4">₹ {{$total}} </p>
                      </td>
                      <td>
-                        <button class="btn btn-md rounded-circle bg-light border mt-4 cart-remove-item" data-id="{{$session_cart_item[$key]['product_id']}}">
+                        <button class="btn btn-md rounded-circle bg-light border mt-4 cart-remove-item" data-id="{{$key}}">
                         <i class="fa fa-times text-danger"></i>
                         </button>
                      </td>

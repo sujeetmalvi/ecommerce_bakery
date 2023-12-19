@@ -83,7 +83,8 @@
                <div class="col-lg-7">
                   <h4 class="fw-bold mb-3">{{$product->product_name}}</h4>
                   <p class="mb-4">{{$product->product_description}}</p>
-                  <h5 class="fw-bold mb-3">₹ <span class="display-6 fw-bold">{{$product->product_price}}/-</span> </h5>
+                  <input type="hidden" name="weight_array" value="{{$weights}}">
+                  <h5 class="fw-bold mb-3">₹ <span class="display-6 fw-bold product_price">{{$weights[0]->product_price}}</span> </h5>
                   <div class="input-group quantity mb-5" style="width: 100px;">
                      <div class="input-group-btn">
                         <button class="btn btn-sm btn-minus dec_qty rounded-circle bg-light border" >
@@ -105,9 +106,6 @@
                         <div>
                            <div class="wt-btn">
                               <?php
-                              // $weights = explode(',', $product->weights);
-                              // $units = explode(',', $product->units);
-                              
                               for($i=0; $i<count($weights); $i++) {
                                  $checked = '';
                                  if($i == 0) {
@@ -115,7 +113,7 @@
                                  }
                               ?>
                                  <label class="mb-4">
-                                    <input type="radio" name="weight" data-id="{{$weights[$i]->weight_id}}" value="{{$weights[$i]->weight}} {{$weights[$i]->unit}}" {{$checked}}/>
+                                    <input type="radio" class="weights" name="weight" data-id="{{$weights[$i]->weight_id}}" value="{{$weights[$i]->weight}} {{$weights[$i]->unit}}" {{$checked}}/>
                                     <div class="box">
                                        <span>{{$weights[$i]->weight}} {{$weights[$i]->unit}}</span>
                                     </div>
@@ -155,7 +153,7 @@
                               <div class="checkboxes__row">
                                  <div class="checkboxes__item">
                                     <label class="checkbox style-c">
-                                       <input type="checkbox" name="property" data-id="{{$property->property_id}}" value="{{$property->property}}" {{$checked}} />
+                                       <input type="radio" name="property" data-id="{{$property->property_id}}" value="{{$property->property}}" {{$checked}} />
                                        <div class="checkbox__checkmark"></div>
                                        <div class="checkbox__body">{{$property->property}}</div>
                                     </label>
@@ -310,7 +308,7 @@
                   </div>
                   <div class="product-details text-center mt-3">
                      <h6>{{$product->product_name}}</h6>
-                     <h5 class="fw-bold">₹ {{$product->product_price}}/-</h5>
+                     <h5 class="fw-bold">₹ {{$product->product_price}}</h5>
                      <div class="row mt-2">
                         <div class="col-lg-6 col-md-6 col-6">
                            <a href="{{URL::to('/product-details?product_id='.$product->product_id)}}">
@@ -338,7 +336,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">₹ 349/-</h5>
+                  <h5 class="fw-bold">₹ 349</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -361,7 +359,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">₹ 349/-</h5>
+                  <h5 class="fw-bold">₹ 349</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -384,7 +382,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">₹ 349/-</h5>
+                  <h5 class="fw-bold">₹ 349</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -407,7 +405,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">₹ 349/-</h5>
+                  <h5 class="fw-bold">₹ 349</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">
@@ -430,7 +428,7 @@
                </div>
                <div class="product-details text-center mt-3">
                   <h6>Kitkat Butter Scotch Half kg Birthday Cake</h6>
-                  <h5 class="fw-bold">₹ 349/-</h5>
+                  <h5 class="fw-bold">₹ 349</h5>
                   <div class="row mt-2">
                      <div class="col-lg-6 col-md-6 col-6">
                         <button class="buy-now">

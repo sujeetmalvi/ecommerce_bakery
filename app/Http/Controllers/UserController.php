@@ -73,20 +73,16 @@ class UserController extends Controller
         $weight = $request->weight;
         $weights = explode(' ', $weight);
 
-        $products = Product::from('products as p')
-            ->select('p.*', DB::raw('group_concat(mw.weight) as weights'), DB::raw('group_concat(mw.unit) as units'))
-            ->where('p.is_deleted', 0)
-            ->join('product_weights as pw', 'p.product_id', '=', 'pw.product_id')
-            ->join('master_weights as mw', 'mw.weight_id', '=', 'pw.weight_id')
-            ->where('p.product_id', $product_id)
-            ->groupBy('product_id')
+        $products = Product::where('product_id', $product_id)->first();
+
+        $weight_data = DB::table('product_weights')->where(['weight_id' => $request->weight_id, 'product_id' => $product_id])
             ->first();
 
         $cart_item = array(
             'product_image' => $products->product_image,
             'product_id' => $product_id,
             'product_name' => $products->product_name,
-            'product_price' => $products->product_price,
+            'product_price' => $weight_data->product_price,
             'product_quantity' => $quantity,
             'product_weight' => $weights[0],
             'product_unit' => $weights[1],
@@ -97,23 +93,24 @@ class UserController extends Controller
         );
 
         $session_cart_item = Session::get('cart_item');
+        $prod_weight_id = $product_id.'-'.$request->weight_id;
         
         if(isset($session_cart_item) && count($session_cart_item) > 0) {
-            if(in_array($product_id, array_keys($session_cart_item))) {
+            if(in_array($prod_weight_id, array_keys($session_cart_item))) {
                 foreach ($session_cart_item as $key => $value) {
-                    if($key == $product_id) {
+                    if($key == $prod_weight_id) {
                         $session_cart_item[$key]['product_quantity'] += $quantity;
                         Session::put('cart_item', $session_cart_item);
                     }
                 }
             }
             else {
-                $session_cart_item[$product_id] = $cart_item;
+                $session_cart_item[$prod_weight_id] = $cart_item;
                 Session::put('cart_item', $session_cart_item);
             }
         }
         else {
-            $session_cart_item[$product_id] = $cart_item;
+            $session_cart_item[$prod_weight_id] = $cart_item;
             Session::put('cart_item', $session_cart_item);
         }
         // print_r($session_cart_item);
@@ -121,10 +118,10 @@ class UserController extends Controller
     }
 
     public function itemRemoveFromCart(Request $request) {
-        $product_id = $request->product_id;
+        $prod_weight_id = $request->prod_weight_id;
 
         $session_cart_item = Session::get('cart_item');
-        unset($session_cart_item[$product_id]);
+        unset($session_cart_item[$prod_weight_id]);
         Session::put('cart_item', $session_cart_item);
 
         return json_encode(array('message' => 'Removed item from cart.'));
@@ -191,15 +188,15 @@ class UserController extends Controller
     }
 
     public function increaseDecreaseQty(Request $request) {
-        $product_id = $request->product_id;
+        $prod_weight_id = $request->prod_weight_id;
         $type = $request->type;
 
         $session_cart_item = Session::get('cart_item');
         
         if(isset($session_cart_item) && count($session_cart_item) > 0) {
-            if(in_array($product_id, array_keys($session_cart_item))) {
+            if(in_array($prod_weight_id, array_keys($session_cart_item))) {
                 foreach ($session_cart_item as $key => $value) {
-                    if($key == $product_id) {
+                    if($key == $prod_weight_id) {
                         if($type == 'increase_qty') {
                             $session_cart_item[$key]['product_quantity'] ++;
                         }
