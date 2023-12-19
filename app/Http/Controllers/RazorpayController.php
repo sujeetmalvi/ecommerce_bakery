@@ -65,7 +65,7 @@ class RazorpayController extends Controller
                   </tr>
                   <tr>
                   <th style="text-align: left; padding-left: 15px;"> Total Amount</th>
-                  <td style="padding-left: 15px;">Rs. '.$orderData->total_amount.'</td>
+                  <td style="padding-left: 15px;">₹ '.$orderData->total_amount.'</td>
                   </tr>
                   <tr>
                   <th style="text-align: left; padding-left: 15px;">Order Status</th>
