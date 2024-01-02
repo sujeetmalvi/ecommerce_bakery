@@ -308,14 +308,13 @@
                });
             });
 
-            $('.decrease_qty').click(function(){ 
-               var quantity = $('input[name="quantity"]').val();
+            $('.decrease_qty').click(function() { 
+               var prod_weight_id = $(this).attr('data-id');
+               var quantity = $('#quantity_'+prod_weight_id).val();
                if(quantity == 0) {
-                  $('input[name="quantity"]').val(1);
+                  $('#quantity_'+prod_weight_id).val(1);
                }
                if(quantity >= 1) { 
-                  var prod_weight_id = $(this).attr('data-id');
-                 
                   // loader.show()
                   $.ajax({
                      url: '/increase-decrease-qty',
@@ -330,13 +329,6 @@
                         location.reload();
                      }
                   });
-               }
-            });
-
-            $('.dec_qty').click(function(){ 
-               var quantity = $('input[name="quantity"]').val();
-               if(quantity == 0) {
-                  $('input[name="quantity"]').val(1);
                }
             });
 

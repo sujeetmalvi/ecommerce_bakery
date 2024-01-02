@@ -59,7 +59,7 @@
                                  <i class="fa fa-minus"></i>
                               </button>
                            </div>
-                           <input type="text" name="quantity" disabled class="form-control form-control-sm text-center border-0 qty_input" value="{{$session_cart_item[$key]['product_quantity']}}">
+                           <input type="text" id="quantity_{{$key}}" name="quantity" disabled class="form-control form-control-sm text-center border-0 qty_input" value="{{$session_cart_item[$key]['product_quantity']}}">
                            <div class="input-group-btn">
                               <button class="btn btn-sm btn-plus increase_qty rounded-circle bg-light border" data-id="{{$key}}">
                                  <i class="fa fa-plus"></i>
